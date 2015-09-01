@@ -1,58 +1,34 @@
-Rails Bootstrap
-========================
+Veterinary Hospital Management:
+================================
 
-This application was generated with the rails_apps_composer gem:
-https://github.com/RailsApps/rails_apps_composer
-provided by the RailsApps Project:
-http://railsapps.github.io/
+To use this application you may need to have
 
-________________________
+Ruby Version >= 2
+Rails Version >= 4
 
-Recipes:
+Clone this repository to your local machine and switch to project path
+Run the following commands
 
-* apps4
-* controllers
-* core
-* email
-* extras
-* frontend
-* gems
-* git
-* init
-* models
-* prelaunch
-* railsapps
-* readme
-* routes
-* saas
-* setup
-* testing
-* views
+$bundle install
 
-Preferences:
+Note: I have used Mysql as my database, you may use postgres or any rdbms that rails supports by adding relevan gem to Gemfile 
 
-* git: true
-* apps4: rails-bootstrap
-* database: default
-* unit_test: false
-* integration: false
-* fixtures: false
-* frontend: bootstrap3
-* email: none
-* authentication: false
-* devise_modules: false
-* authorization: false
-* starter_app: false
-* form_builder: false
-* quiet_assets: true
-* local_env_file: false
-* better_errors: true
-* dev_webserver: webrick
-* prod_webserver: same
-* templates: erb
-* continuous_testing: none
-* rvmrc: true
+Database Setup:
+---------------
+Configure database.yml with adapter specific credentials
 
-________________________
 
-License
+$rake db:create
+$rake db:migrate
+$rake db:seed
+
+It creates 5 sample users with 4 different roles
+
+Start Rails Server
+$rails s
+
+Goto browser and type http://localhost:3000 and login with admin user
+
+email    : admin@gmail.com
+password : admin123
+
