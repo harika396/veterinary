@@ -1,0 +1,52 @@
+
+<div id="header">
+  <h1>Veterinary</h1>
+  <a id="menu-trigger" href="#"><i class="fa fa-bars"></i></a>
+
+</div>
+<div class="welcome_note">
+  Welcome <%= current_user.name unless current_user.blank? %>
+</div>
+<div class="messageBox span6">
+  <%= render :partial => "shared/flash_messages" %>
+</div>
+
+
+<div id="user-nav">	
+
+  <ul class="btn-group">
+
+    <% user_class = (controller_name == 'registrations' && action_name == 'edit') ? "active".html_safe : '' %>
+
+    <li class="btn">
+      <%= link_to '<i class="fa fa-user"></i> <span class="text">Profile</span>'.html_safe, '#', :class => '' %>
+    </li>
+    <li class="btn">
+      <%= link_to '<i class="fa fa-share"></i><span class="text">Logout</span>'.html_safe,"/logout", :method => :get, :class => '' %>
+    </li>
+  </ul>
+</div>
+
+<div id="switcher">
+  <div id="switcher-inner" class="" style="display: none;">
+    <h3>Theme Options</h3>
+    <h4>Colors</h4>
+    <p id="color-style">
+      <a class="button-square orange-switcher" href="#" title="Orange" data-color="orange"></a>
+      <a class="button-square turquoise-switcher" href="#" title="Turquoise" data-color="turquoise"></a>
+      <a class="button-square blue-switcher active" href="#" title="Blue" data-color="blue"></a>
+      <a class="button-square green-switcher" href="#" title="Green" data-color="green"></a>
+      <a class="button-square red-switcher" href="#" title="Red" data-color="red"></a>
+      <a class="button-square purple-switcher" href="#" title="Purple" data-color="purple"></a>
+      <a class="button-square grey-switcher" title="Grey" data-color="grey" href="#"></a>
+    </p>
+    <h4 class="visible-lg">Layout Type</h4>
+    <p id="layout-type">
+      <a class="button" href="#" data-option="flat">Flat</a>
+      <a class="button active" href="#" data-option="old">Old</a>
+    </p>
+  </div>
+<!--   <div id="switcher-button">
+    <i class="fa fa-cogs"></i>
+  </div> -->
+</div>

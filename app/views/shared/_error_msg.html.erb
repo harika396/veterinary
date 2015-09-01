@@ -1,0 +1,17 @@
+<% if model_obj.errors.any? %>
+  <div id="error_explanation">
+    <div class="errorheader">
+      <%= pluralize(model_obj.errors.count, "error") %>
+      prohibited this from being saved
+    </div>
+    <ul>
+      <% model_obj.errors.full_messages.each do |msg| %>
+        <li>
+          <%= msg %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+

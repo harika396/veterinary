@@ -1,0 +1,51 @@
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html =>{:class => 'form login'} ) do |f| %>
+
+<p>	Enter username and password to continue.</p>
+
+<%= wrap_prepend_input_field("#{f.email_field :email, :class => 'form-control', :placeholder => 'Email Id'}", "fa fa-user") %>
+<%= wrap_prepend_input_field("#{f.password_field :password, :class => 'form-control', :placeholder => 'Password'}", "fa fa-lock") %>
+
+<% if devise_mapping.rememberable? -%>
+
+<div class="input-group remember-me">
+	<%= f.check_box :remember_me %> <%= f.label :remember_me %>
+</div>
+<%end%>
+<hr />
+
+<div class="form-actions">
+	<div class="pull-right">
+		<%= f.submit 'Log in', :class => "btn btn-primary" %>
+	</div>
+</div>
+
+<% end %>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :id => "recoverform" }) do |f| %>
+
+<% resource.errors.full_messages.each do |value| %>
+<div class="alert alert-flash">
+	<button data-dismiss="alert" class="close">
+		×
+	</button>
+	<strong>Error!</strong> <%= value.html_safe %>
+</div>
+<% end %>
+
+<p>	Enter your Username below and we will send you instructions how to recover a password.</p>
+
+<%= wrap_prepend_input_field("#{f.email_field :email, :class => 'form-control', :placeholder => 'Email Id'}", "icon-envelope", :autofocus => true) %>
+<hr />
+
+<div class="form-actions">
+	<div class="pull-left">
+		<a href="#" class="flip-link to-login">&laquo; Back to login</a>
+		<br />
+	</div>
+
+	<div class="pull-right">
+		<%= submit_tag 'Request Password', :class => "btn btn-unicorn" %>
+	</div>
+</div>
+
+<% end %>

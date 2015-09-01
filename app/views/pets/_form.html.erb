@@ -1,0 +1,24 @@
+<%= render "shared/error_msg", {:model_obj => @pet} %>
+<%= form_for(@pet) do |f| %>
+
+<p style="margin:10px 0px"><b>Pet Details</b></p>
+
+<div class="row" style="margin-top:10px">
+  <div style ="float:left;width:50%">
+    <%= wrap_input_field("#{f.text_field :name, :placeholder => 'Pet Name'}", "<b>Pet Name</b><span class='text-danger'> *</span>") %>
+    <%= wrap_input_field("#{select_tag 'pet[pet_type_id]', options_for_select(@pet_types),:prompt => "Select Customer"}", "<b>Customer</b>") %>
+    <%= wrap_input_field("#{f.text_field :breed, :placeholder => 'Pet Breed'}", "<b>Pet Breed</b><span class='text-danger'> *</span>") %>
+    <%= wrap_input_field("#{f.number_field :age, :placeholder => 'Pet Age'}", "<b>Pet Age</b><span class='text-danger'> *</span>") %>
+    <%= wrap_input_field("#{f.number_field :weight, :placeholder => 'Weight'}","<b>Weight</b><span class='text-danger'>*</span>")%> 
+    <%= wrap_input_field("#{f.datetime_select :last_visit, :placeholder => 'Last Visit'}","<b>Last Visit</b><span class='text-danger'>*</span>")%> 
+    <%= wrap_input_field("#{select_tag 'pet[user_id]', options_for_select(@customers),:prompt => "Select Customer"}", "<b>Customer</b>") %>
+    <%= wrap_input_field("#{select_tag 'pet[doctor_id]', options_for_select(@doctors),:prompt => "Select Doctor"}", "<b>Doctor</b>") %><br /><br />
+  </div>
+</div>
+
+<div class="form-actions">
+  <% action = @pet.id.blank? ? "Create" : "Update" %>
+  <%= f.submit action, :class => "btn btn-primary" %> |
+  <%= link_to "Cancel", pets_path,:class => "btn btn-primary" %>
+</div>
+<% end %>

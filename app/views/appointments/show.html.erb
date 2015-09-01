@@ -1,0 +1,70 @@
+<% if current_user.customer?  %>
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Pet's Name:</b>
+  <%#= @appointment.user.pet.try(:name) %>
+</p>
+
+
+<p>
+  <b>Date of visit:</b>
+  <%= @appointment.date_of_visit %>
+</p>
+
+<p>
+  <b>Pet:</b>
+  <%#= @appointment.pet.try(:name) %>
+</p>
+
+<p>
+ <b>Reason:</b>
+  <%= @appointment.reason %>
+</p>
+
+
+<% else %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date of visit:</b>
+  <%= @appointment.date_of_visit %>
+</p>
+
+<p>
+  <b>Pet:</b>
+  <%#= @appointment.user.pet.try(:name) %>
+</p>
+<%= binding.pry %>
+<%= @appointment %>
+<%= @appointment.user %>
+<p>
+	<%= link_to "Edit Pet Info", edit_pet_path(@appointment.user.pet.id)  %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%#= @appointment.user.try(:name) %>
+</p>
+
+<p>
+  <b>Minder:</b>
+  <%= @appointment.reminder %>
+</p>
+
+<p>
+  <b>Reason:</b>
+  <%= @appointment.reason %>
+</p>
+
+<p>
+  <b>Doctor:</b>
+  <%= @appointment.doctor.try(:name) %>
+</p>
+
+<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<%= link_to 'Back', appointments_path %>
+
+<% end %>

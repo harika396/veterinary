@@ -1,0 +1,15 @@
+<p style="margin:10px 0px"><b>Customer Details</b></p>
+<div class="row" style="margin-top:10px">
+  
+    <div style ="float:left;width:50%">
+    <%= wrap_input_field("#{f.text_field :name, :placeholder => 'Customer Name'}", "<b>Customer Name</b><span class='text-danger'> *</span>") %>
+    <%= wrap_input_field("#{f.email_field :email, :placeholder => 'Email Id'}", "<b>Email</b><span class='text-danger'> *</span>") %>
+    <%= wrap_input_field("#{f.password_field :password,  :placeholder => 'Password'}", "<b>Password </b><span class='text-danger'> *</span>") %>
+    <%= wrap_input_field("#{f.password_field :password_confirmation,  :placeholder => 'Password Confirmation'}", "<b>Password Confirmation</b><span class='text-danger'> *</span>") %>
+
+
+	<%= f.fields_for :pet, @pet  do |pet| %>
+		<%= render "pets/pet", :f => pet  %>
+	<% end %>
+	</div>
+</div>

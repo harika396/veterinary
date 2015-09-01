@@ -1,0 +1,52 @@
+<div class="col-xs-12">
+
+    <% unless current_user.customer? %>
+    <%= link_to "Create New Appointment", new_appointment_path, :class => "btn btn-info btn-xs pull-right"%>
+    <% end %>
+
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"><i class="fa fa-th"></i></span>
+            <h5>Listing Appointments</h5>
+        </div>
+
+
+        <div class="widget-content nopadding">
+            <table class="table table-striped table-hover data-table dataTable">
+                <thead>
+                  <tr>
+                    <th>Pet</th>
+                    <th>Date of visit</th>
+                    <th>User</th>
+                    <th>Minder</th>
+                    <th>Reason</th>
+                    <th>Doctor</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @appointments.each do |appointment| %>
+                <tr>
+                    <td><%= appointment.user.pet.try(:name) %></td>
+                    <td><%= appointment.date_of_visit %></td>
+                    <td><%= appointment.user.try(:name) %></td>
+                    <td><%= appointment.reminder %></td>
+                    <td><%= appointment.reason %></td>
+                    <td><%= appointment.doctor.try(:name) %></td>
+                    <td><%= link_to 'Show', appointment %></td>
+                    <% unless current_user.customer? %>
+
+                    <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+                    <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <% end %>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+</div>
+

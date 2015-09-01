@@ -1,0 +1,41 @@
+<% if !(flash[:notice].nil? && flash[:error].nil?  && flash[:alert].nil? ) %>
+  <center>
+    <div id="flashes">
+      <% unless flash[:error].blank? %>
+        <div class="alert alert-danger" id="error_div" >
+          <button data-dismiss="alert" class="close">×</button>
+          <%= flash[:error] %>
+         </div>
+      <% end %>
+      <% unless flash[:notice].blank? %>      
+        <div class="alert alert-success" id="notice">
+          <button data-dismiss="alert" class="close">×</button>
+          <%= flash[:notice] %>
+        </div>
+        <script>
+           $('#error_div').show();
+        </script>
+      <% end %>
+      <% unless flash[:alert].blank? %>      
+        <div class="alert alert-danger">
+          <button data-dismiss="alert" class="close">×</button>
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+    </div>
+  </center>
+<script>
+    
+    scroll(0, 0);
+    $('#errors_flash').show();
+
+
+  </script>
+  <script>
+    $("#error_div").fadeOut(5000);
+    $("#notice").fadeOut(5000);
+  </script>
+
+<% end %>
+
+

@@ -1,0 +1,122 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Veterinary <%= yield :window_title %></title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%= favicon_link_tag '/assets/big-star.png' %>
+  <%= stylesheet_link_tag    "application", :media => "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  
+
+  <%= csrf_meta_tags %>
+</head>
+
+<body data-color="grey" class="" data-target=".bs-docs-sidebar" data-spy="scroll">
+  <div id="wrapper">
+    <%= render :partial => "shared/admin/header" %>	<!-- Render Header -->
+
+    <%= render :partial => "shared/admin/sidebar" %> <!-- Render Sidebar -->
+
+    <div id="content">
+      <div id="content-header" class="mini">
+        <h1><%= yield :title %></h1>
+        <div class="btn-group"> </div>
+      </div>
+      
+       <div id = "error_div" style="display:none"></div>
+      <div class="container-fluid">
+       <div id="loader_indicator" class="loader_indicator"><%= image_tag("/assets/indicator2.gif") %></div>
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= render :partial => "shared/footer" %> <!-- Render Footer -->
+  </div>
+
+  <script>
+    $(document).ajaxSend(function(event, request, settings) {
+      $('#loader_indicator').show();
+      
+    });
+    $(document).ajaxComplete(function(event, request, settings) {
+      $('#loader_indicator').hide();
+    });
+  </script>
+  <script>
+   
+  </script>
+
+</body>
+</html>
+
+<script>
+  $.fn.modal.Constructor.prototype.enforceFocus = function() {};
+</script>
+
+
+
+
+
+<% if false %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title><%= content_for?(:title) ? yield(:title) : "Veterinary" %></title>
+    <!--
+    <meta name="description" content="<%#= content_for?(:description) ? yield(:description) : "Veterinary" %>"> -->
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= csrf_meta_tags %>
+    <%= javascript_include_tag "application" %>
+    <%= yield(:head) %>
+  </head>
+  <body class="<%= controller_name %> <%= action_name %> <% if current_user %>authenticated<% end %>">
+    <header>
+      <%= render 'layouts/navigation' %>
+      <%= render 'layouts/messages' %>
+    </header>
+    <!-- <div id="main" role="main"> -->
+    <div id="content"> 
+    <div class="row">
+					<div class="col-xs-12">
+						<div class="widget-box">
+      <%= yield %>
+      </div>
+      </div>
+      </div>
+      </div>
+    <!-- </div> -->
+    <footer>
+      <%= render 'layouts/footer' %>
+    </footer>
+  </body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Veterinary</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+	
+	<div id="top">
+		<div class="top clearfix">
+			<%= render "shared/user_account" %>
+		</div>
+	</div>
+
+<%= yield %>
+
+</body>
+</html>
+<% end %>

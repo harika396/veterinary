@@ -1,0 +1,25 @@
+<div id="sidebar">
+  <ul style="display: block;">
+    
+    <% appointments_class = (controller_name == 'appointments' && action_name == 'index') ? "active" : '' %>
+    <% pets_class = (controller_name == 'pets' && action_name == 'index') ? "active" : '' %>
+    <% pet_types_class = (controller_name == 'pet_types' && action_name == 'index') ? "active" : '' %>
+    <% users_class = (controller_name == 'users' && action_name == 'index') ? "active" : '' %>
+    <%# address_class = (controller_name == 'addresses' && action_name == 'index') ? "active" : '' %>
+     <%# profile_class = (controller_name == 'profiles' && action_name == 'index') ? "active" : '' %>
+        
+    <li class="<%= appointments_class %>"><%= link_to '<i class="fa fa-th-list"></i> <span>Appointments</span>'.html_safe(), appointments_path %></li>
+    <li class="<%= users_class %>"><%= link_to '<i class="fa fa-th-list"></i> <span>Users</span>'.html_safe(), users_path %></li>
+
+    <li class="<%= pets_class %>"><%= link_to '<i class="fa fa-th-list"></i> <span>Pets</span>'.html_safe(), pets_path %></li>
+    <li class="<%= pet_types_class %>"><%= link_to '<i class="fa fa-th-list"></i> <span>Pet Types</span>'.html_safe(), pet_types_path %></li>
+    <% if false %>
+      <li class="<%= address_class %>"><%= link_to '<i class="fa fa-th-list"></i> <span>Addresses</span>'.html_safe(), addresses_path %></li>
+    <li class="<%= profile_class %>"><%= link_to '<i class="fa fa-th-list"></i> <span>profiles</span>'.html_safe(), profiles_path %></li>
+    <% end %>
+ 
+  </ul>
+  
+</div>
+
+

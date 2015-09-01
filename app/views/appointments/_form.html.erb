@@ -1,0 +1,23 @@
+<%= render "shared/error_msg", {:model_obj => @appointment} %>
+
+<%= form_for(@appointment) do |f| %>
+
+<div class="row" style="margin-top:10px">
+  <%= wrap_input_field("#{f.datetime_select :date_of_visit}","<b>Date of  Visit</b><span class='text-danger'>*</span>")%> 
+  <div>
+    <%= f.fields_for :user, @user  do |user| %>
+    <%= render "/users/pet_form", :f => user  %>
+    <% end %>
+  </div>
+  <%= wrap_input_field("#{f.text_area :reason}","<b>Reason</b><span class='text-danger'>*</span>")%> 
+  <%= wrap_input_field("#{f.datetime_select :reminder}","<b>Reminder</b><span class='text-danger'>*</span>")%> 
+  <%= wrap_input_field("#{select_tag 'appointment[doctor_id]', options_for_select(@doctors, @appointment.doctor_id),:prompt => "Select Doctor"}", "<b>Doctor</b>") %><br />
+</div>
+
+<div class="form-actions">
+  <% action = @appointment.id.blank? ? "Create" : "Update" %>
+  <%= f.submit action, :class => "btn btn-primary" %> |
+  <%= link_to "Cancel", appointments_path,:class => "btn btn-primary" %>
+</div>
+
+<% end %>

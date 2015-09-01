@@ -1,0 +1,26 @@
+<div class="float-right">
+
+	
+	<% if signed_in? %>
+	<% if current_user.admin? %>
+	<%= link_to "Manage Users", users_path, class: "user" %>
+		&nbsp;|&nbsp;
+	<% end %>
+	
+	
+	<%= link_to "Appointments", appointments_path, class: "appointment" %>
+		&nbsp;|&nbsp;
+	<%= link_to "My Account", edit_user_registration_path, class: "account" %>
+		&nbsp;|&nbsp;
+	<%= link_to "Sign out", destroy_user_session_path,  method: :delete ,class: "account" %>
+	
+	
+	
+	<% else %>
+	<%= link_to "Sign up", new_user_registration_path, class: "register" %>
+	&nbsp;|&nbsp;
+	<%= link_to "Sign in", new_user_session_path, class: "help" %>
+	<% end %>
+	
+	
+</div>

@@ -1,0 +1,48 @@
+<div class="col-xs-12">
+  <% unless current_user.customer? %>
+  <%= link_to "Create Address", new_address_path, :class => "btn btn-info btn-xs pull-right"%>
+  <% end %>
+  
+  <div class="widget-box">
+    <div class="widget-title">
+      <span class="icon"><i class="fa fa-th"></i></span>
+      <h5>Listing Addresses</h5>
+  </div>
+
+
+  <div class="widget-content nopadding">
+      <table class="table table-striped table-hover data-table dataTable">
+        <thead>
+          <tr>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>User</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <% @addresses.each do |address| %>
+        <tr>
+            <td><%= address.street %></td>
+            <td><%= address.city %></td>
+            <td><%= address.state %></td>
+            <td><%= address.zip %></td>
+            <td><%= address.user_id %></td>
+            <td><%= link_to 'Show', address %></td>
+            <td><%= link_to 'Edit', edit_address_path(address) %></td>
+            <td><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+<br />
+
+

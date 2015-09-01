@@ -1,0 +1,52 @@
+<div class="col-xs-12">
+    <% unless current_user.customer? %>
+    <%= link_to "Create New Pet", new_pet_path, :class => "btn btn-info btn-xs pull-right"%>
+    <% end %>
+    
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"><i class="fa fa-th"></i></span>
+            <h5>Listing Pets</h5>
+        </div>
+
+
+        <div class="widget-content nopadding">
+            <table class="table table-striped table-hover data-table dataTable">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Breed</th>
+                    <th>Age</th>
+                    <th>Weight</th>
+                    <th>Last visit</th>
+                    <th>User</th>
+                    <th>Doctor</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                 </thead>
+
+               <tbody>
+                <% @pets.each do |pet| %>
+                <tr>
+                    <td><%= pet.name %></td>
+                    <td><%= pet.breed %></td>
+                    <td><%= pet.age %></td>
+                    <td><%= pet.weight %></td>
+                    <td><%= pet.last_visit %></td>
+                    <td><%= pet.user_id %></td>
+                    <td><%= pet.doctor_id %></td>
+                    <td><%= link_to 'Show', pet %></td>
+                    <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+                    <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+                <% end %>
+               </tbody>
+
+          </table>
+      </div>
+   </div>
+</div>
+
+<%#= link_to 'New Pet', new_pet_path %>

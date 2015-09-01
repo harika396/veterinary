@@ -1,0 +1,41 @@
+<%= render "shared/error_msg", {:model_obj => @user} %>
+<%= form_for(@user) do |f| %>
+  	
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+	
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+	
+	
+  <div class="field">
+    <%= f.label :role_id %><br />
+		<%= f.select :role_id, @roles , {:prompt => 'Select Role'} %>  </div>
+	</div>
+	
+	<div class="row" style="margin:10px">
+		<%= f.fields_for :profile, @profile  do |profile| %>
+			<%= render "profiles/form", :f => profile  %>
+		<% end %>
+	</div>
+	
+	<div class="row" style="margin:10px">
+		<%= f.fields_for :address, @address  do |address| %>
+			<%= render "addresses/form", :f => address  %>
+		<% end %>
+	</div>
+	
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+	
+	
+<% end %>

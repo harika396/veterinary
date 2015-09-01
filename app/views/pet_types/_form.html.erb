@@ -1,0 +1,10 @@
+<%= render "shared/error_msg", {:model_obj => @pet_type} %>
+<%= form_for(@pet_type) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

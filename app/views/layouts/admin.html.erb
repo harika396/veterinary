@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Veterinary</title>
+    <%= stylesheet_link_tag  "admin", media: "all", "data-turbolinks-track" => true %>
+    <%#= javascript_include_tag "admin", "data-turbolinks-track" => true %>
+
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="container">
+      <div id="logo">
+          <h1 style="padding:20px;">Veterinary</h1>
+      </div>
+           
+      <div class="centerBox">
+        <%= render :partial => "shared/flash_messages" %>
+      </div>
+      <div id="loginbox">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

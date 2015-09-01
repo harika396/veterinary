@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @pet.name %>
+</p>
+
+<p>
+  <b>Breed:</b>
+  <%= @pet.breed %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%= @pet.age %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%= @pet.weight %>
+</p>
+
+<p>
+  <b>Last visit:</b>
+  <% if @pet.last_visit.present? %>
+  <%= formatted_date(@pet.last_visit) %>
+  <% end %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @pet.user.try(:name) %>
+</p>
+
+<p>
+  <b>Doctor:</b>
+  <%= @pet.doctor_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_pet_path(@pet) %> |
+<%= link_to 'Back', pets_path %>

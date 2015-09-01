@@ -1,0 +1,141 @@
+/*
+ * 
+ * Global Styles
+ * 
+ */
+
+@import url("variables.less");
+@import url("mixins.less");
+
+/******************** TAGS ************************/
+h3 { font-size: 18px;}
+h4 { font-size: 16px; margin-bottom: 10px;}
+
+
+h4.normal{margin: 0;}
+h3.normal{margin: 0;}
+
+/******************** CONTENT ************************/
+.panel-sidebar{
+  padding: 12px 22px; 
+  border-radius: 5px;
+  height: 400px; 
+  margin-left: 10px;
+}
+.panel-sidebar {
+  h5{ border-bottom: 1px solid #DDDDDD; }
+  .widget-content{ 
+    .rounded-corners(6px); 
+    margin-top: 22px; 
+    ul li{line-height: 24px; display: block; font-size: 12px;}
+  }
+}
+
+
+/******************** FORM ***************************/
+.input-xxxlarge {width: 80%;}
+
+/******************** ERRORS *************************/
+.messageBox{
+  position: absolute;
+  top: 41px;
+  z-index: 100;
+  left: 40%;
+}
+.field_with_errors input{border: 1px solid #B94A48;}
+.error { 
+  color: #B94A48;
+  input,textarea {border-color: #B94A48;} 
+}
+.error-msg {color: #B94A48;}
+#error_explanation {color: @errorText;}
+
+/* For Devise Error msgs */
+.alert-alert{
+  background-color: #F2DEDE;
+  border-color: #EED3D7;
+  color: #B94A48;
+}
+
+
+
+
+/******************** LISTING ITEMS ******************/
+.listing-item{
+  padding: 10px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #BBBBBB;
+  border-top: 1px;
+  outline: thin none;
+  h4 { margin: 0; font-size: 15px;}
+  .description {font-size: 12px; border-bottom: 1px solid #F0F0F0; padding-bottom: 5px;}
+  .location {font-size: 10px; color: #999999; font-weight: bold;}
+  .snapshot {font-size: 12px; padding-top: 5px;}
+  .facilities {margin-top: 12px;}
+  .status {
+    float: right;
+   }
+  .price{
+    font-weight: bold;
+    color: #B94A48;
+  }
+ 
+}
+
+/***************** TABLES **************************/
+.table th, .table td {
+  text-align: left;
+}
+
+/******************** TABS ***************************/
+.tabs-links{
+  margin-left: 14px;
+  margin-top: -23px;
+}
+
+
+/******************** ICONS *************************/
+
+
+/******************** COMMON STYLES ****************/
+.invoice_stats div{
+  line-height: 35px;
+}
+
+
+
+/*********** QUICK STYLES ****************************/
+.bold {font-weight: bold;}
+.center {text-align: center;}
+.centerBox {margin: auto; width: 50%;}
+.size12 {font-size: 12px; line-height: 18px;}
+.separator {color: #399FBD; font-size: 11px;}
+.margintop4{ margin-top: 4px; }
+.margintop8{ margin-top: 8px; }
+.margintop12{ margin-top: 12px; }
+.margintop22{ margin-top: 22px; }
+.separator-black {color: #777777; font-size: 11px; padding: 0 5px;}
+.white{color: @white;}
+.border-bottom{border-bottom: 1px solid #ECECEC; padding-bottom: 10px;}
+.border-dashed-left{border-left: 1px dashed #AAA; padding-left: 22px;}
+.input-date{width: 150px;}
+// .border-dashed-left{ .border-style("left", "#AAAAAA", "dashed");}
+
+/****************** Grid Style *********************/
+
+.show-grid {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.show-grid [class*="span"] {
+    background-color: #EEEEEE;
+    border-radius: 3px 3px 3px 3px;
+    line-height: 40px;
+    min-height: 40px;
+    text-align: center;
+}
+
+.show-grid:hover [class*="span"] {
+    background: none repeat scroll 0 0 #DDDDDD;
+}
